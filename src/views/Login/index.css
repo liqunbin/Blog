@@ -1,0 +1,30 @@
+#login {
+  margin: 0;
+  padding: 0;
+  height:100%;
+  width: 100%;
+  background-image: url("../../static/bg.png");
+}
+
+body , html{
+  height: 100%
+}
+#components-layout-demo-top-side .logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255,255,255,.2);  
+  margin: 16px 28px 16px 0;
+  float: left;
+}
+.right-table-action .ant-divider {
+  margin: 0 6px;
+  display: inline-block;
+  height: 8px;
+  width: 1px;
+  background: #ccc;
+  float: none;
+}
+
+.right-table-action {
+  font-size: 16px;
+}

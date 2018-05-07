@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>project</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcss.com/flv.js/1.4.0/flv.min.js"></script>
+    <!-- <script type="text/javascript" src="bundle.js"></script>
+    <%= htmlWebpackPlugin.options.title %>
+    <%= htmlWebpackPlugin.options.data %>
+    <p>hellp</p> -->
+    <!-- shdajk -->
+
+
+    <% for(var key in htmlWebpackPlugin.files.chunks){ %>
+
+  		<% if(key !== 'main'){ %>
+
+  			<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"></script>
+
+  		<% } %>
+
+  	<% } %>
+  <div id='root'></div>
+  </body>
+
+</html>
