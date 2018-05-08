@@ -7,10 +7,11 @@ import { Icon } from 'antd';
 
 class Home extends React.Component {
   render() {
+    console.log('process.env.NODE_ENV',process.env.NODE_ENV)
     return (
       <div>
-      
-        <Divider >this is Home</Divider>
+
+        <Divider >this iss Hom2e</Divider>
       </div>
     );
   }

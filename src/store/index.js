@@ -10,8 +10,14 @@ const loggerMiddleware = createLogger({
   collapsed: true
 })
 //使用redux的combineReducers方法将所有reducer打包起来, 配置后在控制台可看到每次action调用的请求状态
-import reducer from './reducers'
-
+import reducer from '../reducers/index';
+if (module.hot) {
+  // Enable Webpack hot module replacement for reducers
+  module.hot.accept('../reducers/index', () => {
+    const nextRootReducer = require('../reducers/index').default;
+    store.replaceReducer(nextRootReducer);
+  });
+}
 const createStoreWithMiddleware = applyMiddleware(
   // `thunk` 中间件由 `Redux` 提供。作用是使action创建函数可以返回一个function代替一个action对象
   thunkMiddleware,
