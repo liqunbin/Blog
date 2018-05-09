@@ -17,9 +17,13 @@ app.get(['/*'], function (req, res) {
 });
 console.log('webConfig.output.path',webConfig.output.path)
 new WebpackDevServer(webpack(webConfig), {
-  publicPath: webConfig.output.path,
+  contentBase: path.join(__dirname, "dist"),
+  // publicPath: webConfig.output.path,
   hot: true,
-  historyApiFallback: true
+  historyApiFallback: true,
+  stats: {
+    colors: true
+  }
 }).listen(config.port, 'localhost', function (err, result) {
   if (err) {
     return console.log(err);
