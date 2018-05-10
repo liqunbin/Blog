@@ -16,12 +16,22 @@ const webpack_conf = {
     module: {},
 };
 // webpack_conf.mode = 'development'; //设置环境变量，可以设置process.env.NODE_ENV的值,  但是我现在加上这句就报错了
-webpack_conf.entry = [
-    'babel-polyfill',
-    // 'webpack-hot-middleware/client',
-    // 'react-hot-loader/patch',
-    path.resolve(__dirname, 'src/app.js')
-  ];
+// webpack_conf.entry = [
+//     'babel-polyfill',
+//     // 'webpack-hot-middleware/client',
+//     // 'react-hot-loader/patch',
+//     path.resolve(__dirname, 'src/app.js')
+//   ];
+
+webpack_conf.entry = {
+        index: [
+            'react-hot-loader/patch',
+            `webpack-hot-middleware/client?noInfo=true&reload=true`,
+            'babel-polyfill',
+            path.resolve(__dirname, 'src/app.js')
+        ],
+        vendor: ['react', 'react-dom', 'react-router-dom']
+    },
 /*
 babel-polyfill 据说用于兼容浏览器;
 webpack-hot-middleware/client 和 react-hot-loader/patch 做热更新添加的模块
@@ -29,6 +39,7 @@ webpack-hot-middleware/client 和 react-hot-loader/patch 做热更新添加的�
 
 webpack_conf.output = {
     path:path.resolve(__dirname, 'dist'),//输出的文件的路径，__dirname node相对运行命令的决定路径
+    publicPath:'/',
     filename: 'js/[name]-bundle.js',
     // chunkFilename: debug? '[name].js':'[name].[chunkhash].js',
 };
@@ -64,7 +75,7 @@ webpack_conf.plugins = [
   new webpack.NamedModulesPlugin(),
   new webpack.HotModuleReplacementPlugin(),//热加载插件
   new OpenBrowserPlugin({
-          url: `http://127.0.0.1:${config.port}`
+          url: `${config.host}:${config.port}`
       })
 ];
 

@@ -10,7 +10,7 @@ class Home extends React.Component {
     console.log('process.env.NODE_ENV',process.env.NODE_ENV)
     return (
       <div>
-        <Divider >this iss Hom222e33</Divider>
+        <Divider >this qssaHom2322e</Divider>
       </div>
     );
   }

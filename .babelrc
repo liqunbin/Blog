@@ -1,15 +1,17 @@
 {
     "presets": ["react","env","stage-0"],
     "plugins": [
+      "react-hot-loader/babel",
+      "transform-decorators-legacy",
       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }],
-      ["react-transform", {  
-        "transforms": [{  
-          "transform": "react-transform-hmr",  
-            
-          "imports": ["react"],  
-            
-          "locals": ["module"]  
-        }]  
+      ["react-transform", {
+        "transforms": [{
+          "transform": "react-transform-hmr",
+
+          "imports": ["react"],
+
+          "locals": ["module"]
+        }]
       }]
     ]
 }
